@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alessandra Faye Caaya — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+/* ── TAILORED TIMELESS PALETTE ── */
+:root{
+  /* Carafe · Burnished Gold · Dark Night · Niagara Mist · White Sand */
+  --ink:#1e2d40;            /* Dark Night — deep navy */
+  --ink-mid:#4a5e6e;        /* muted slate */
+  --ink-muted:#8fafc4;      /* Niagara Mist — as muted text */
+  --cream:#e8e0d5;          /* White Sand — warm off-white */
+  --paper:#ddd5c8;          /* slightly deeper sand */
+  --white:#f4efe8;          /* lightest warm white */
+  --sage:#6b3a2a;           /* Carafe — dark brown as primary accent */
+  --sage-light:#f0e6e0;     /* pale carafe tint */
+  --sage-mid:#9a5c48;       /* mid carafe */
+  --terra:#b8963e;          /* Burnished Gold — warm gold accent */
+  --terra-light:#f5edd4;    /* pale gold tint */
+  --gold:#b8963e;           /* Burnished Gold */
+  --gold-light:#f5edd4;     /* pale gold */
+  --niagara:#8fafc4;        /* Niagara Mist — cool blue */
+  --niagara-light:#d9e8f0;  /* pale niagara */
+  --border:rgba(30,45,64,0.10);
+  --border-mid:rgba(30,45,64,0.20);
+  --radius:14px;
+  --radius-sm:8px;
+}
+
+html{scroll-behavior:smooth;}
+
+/* ── PAPER TEXTURE BACKGROUND ── */
+body {
+  font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.65;
+  position: relative;
+}
+
+/* Layered paper texture using pseudo + repeating SVG noise */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.35' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23f)' opacity='0.025'/%3E%3C/svg%3E");
+  background-size: 200px 200px, 400px 400px;
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
+
+body > * { position: relative; z-index: 1; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ── TYPOGRAPHY — Playfair Display for headings, Source Sans 3 for body ── */
+h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; letter-spacing: -0.02em; }
+.serif { font-family: 'Playfair Display', Georgia, serif; }
+
+/* Larger, readable body font */
+body { font-size: 17px; }
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:300;
+  background:rgba(232,224,213,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.8rem;height:66px;
+}
+.nav-brand{display:flex;flex-direction:column;line-height:1.2;}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;}
+.nav-sub{font-size:0.65rem;color:var(--ink-muted);letter-spacing:0.14em;text-transform:uppercase;margin-top:2px; font-family:'Source Sans 3',sans-serif;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{font-size:0.85rem;color:var(--ink-muted);letter-spacing:0.03em;font-weight:500;transition:color .2s; font-family:'Source Sans 3',sans-serif;}
+.nav-links a:hover{color:var(--sage);}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--ink);color:var(--cream);
+  padding:9px 22px;border-radius:100px;
+  font-size:0.82rem;font-weight:600;letter-spacing:0.04em;
+  transition:background .2s;white-space:nowrap;
+  font-family:'Source Sans 3',sans-serif;
+}
+.nav-cta:hover{background:var(--sage);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1.05fr;
+  align-items:center;
+  padding:7rem 2.8rem 4rem;gap:3.5rem;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 80% 30%,rgba(45,125,138,0.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:1.6rem;}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);}
+.eyebrow-text{font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage);font-weight:600; font-family:'Source Sans 3',sans-serif;}
+.hero h1{
+  font-size:clamp(3.2rem,5.8vw,5.4rem);
+  line-height:1.0;margin-bottom:1.3rem;font-weight:700;
+}
+.hero h1 em{color:var(--sage);font-style:italic;}
+.hero-desc{font-size:1.05rem;color:var(--ink-mid);line-height:1.85;max-width:480px;margin-bottom:1.9rem;}
+.hero-skills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.2rem;}
+.skill-pill{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;
+  border:1.5px solid var(--border-mid);color:var(--ink-mid);
+  transition:all .2s; font-family:'Source Sans 3',sans-serif;
+}
+.skill-pill:hover{border-color:var(--sage);color:var(--sage);}
+.hero-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--ink);color:var(--cream);
+  padding:13px 30px;border-radius:100px;
+  font-size:0.9rem;font-weight:600;transition:all .2s;
+  font-family:'Source Sans 3',sans-serif;
+}
+.hero-btn:hover{background:var(--sage);transform:translateY(-1px);}
+
+/* hero right — bigger stats card */
+.hero-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:24px;padding:2.8rem 2.6rem;
+  display:flex;flex-direction:column;gap:1.6rem;
+  box-shadow: 0 8px 40px rgba(30,45,64,0.10);
+}
+.hc-stat{padding-bottom:1.6rem;border-bottom:1px solid var(--border);}
+.hc-stat:last-child{padding-bottom:0;border-bottom:none;}
+.hc-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--ink);line-height:1;}
+.hc-label{font-size:0.72rem;color:var(--ink-muted);letter-spacing:0.09em;text-transform:uppercase;margin-top:4px; font-family:'Source Sans 3',sans-serif;}
+.hc-detail{font-size:0.9rem;color:var(--ink-mid);margin-top:5px;line-height:1.55; font-family:'Source Sans 3',sans-serif;}
+
+/* ── SHARED SECTION STYLES ── */
+section{padding:5.5rem 2.8rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.ey-line{height:1px;width:30px;background:var(--terra);}
+.ey-text{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--terra); font-family:'Source Sans 3',sans-serif;}
+.section-title{font-size:clamp(2rem,3.2vw,3rem);margin-bottom:0.7rem;font-weight:700;}
+.section-sub{font-size:1rem;color:var(--ink-mid);line-height:1.8;max-width:560px;margin-bottom:2.8rem;}
+hr.div{border:none;border-top:1px solid var(--border);margin:0;}
+.badge{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px; font-family:'Source Sans 3',sans-serif;}
+.b-pod{background:#d6eef1;color:#1e5f6a;}
+.b-script{background:#f5e9da;color:#7a3c12;}
+.b-social{background:var(--niagara-light);color:#1e3a6e;}
+.b-creative{background:var(--terra-light);color:var(--terra);}
+.b-real{background:#d8f2e0;color:#145e28;border:1px solid #9de8b4;}
+.b-sample{background:var(--niagara-light);color:var(--ink);}
+.b-admin{background:var(--cream);color:var(--ink-mid);}
+
+/* ── SERVICES CAROUSEL — full width, consistent cards ── */
+.services-section { padding:5.5rem 0; }
+.services-section .section-inner { max-width:1100px; margin:0 auto; padding:0 2.8rem; }
+
+.carousel-wrap{
+  position:relative;
+  overflow:hidden;
+  margin:0 -2.8rem; /* bleed to edges */
+  padding:0 2.8rem;
+}
+.carousel-track{
+  display:flex;
+  gap:1.4rem;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+.svc-card{
+  /* Each card takes equal share — show ~3 at a time */
+  flex: 0 0 calc(33.333% - 1rem);
+  min-width: 0;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem 1.8rem;
+  transition:border-color .2s,transform .2s;
+  display:flex;flex-direction:column;
+  min-height: 280px;
+}
+.svc-card:hover{border-color:var(--sage-mid);transform:translateY(-2px);}
+.svc-card.active-card{border-color:var(--sage);background:var(--ink);color:var(--cream);}
+.svc-icon{font-size:1.9rem;margin-bottom:1.1rem;display:block;}
+.svc-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;margin-bottom:0.6rem;}
+.svc-card.active-card .svc-title{color:var(--cream);}
+.svc-desc{font-size:0.9rem;line-height:1.75;color:var(--ink-mid);flex:1;}
+.svc-card.active-card .svc-desc{color:rgba(245,240,232,0.75);}
+.svc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:1.2rem;}
+.svc-tag{font-size:0.62rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:var(--sage-light);color:var(--sage); font-family:'Source Sans 3',sans-serif;}
+.svc-card.active-card .svc-tag{background:rgba(255,255,255,0.15);color:rgba(245,240,232,0.85);}
+.carousel-btns{display:flex;gap:10px;margin-top:1.6rem;}
+.car-btn{
+  width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border-mid);
+  background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;transition:all .2s;color:var(--ink);
+}
+.car-btn:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.carousel-dots{display:flex;gap:6px;align-items:center;margin-top:1rem;}
+.cdot{width:7px;height:7px;border-radius:50%;background:var(--border-mid);transition:all .2s;cursor:pointer;}
+.cdot.active{background:var(--sage);width:22px;border-radius:3px;}
+
+/* ── CREDENTIALS — all banners horizontal ── */
+.cred-list{display:flex;flex-direction:column;gap:1.1rem;}
+.cred-banner{
+  border-radius:var(--radius);overflow:hidden;
+  border:1px solid var(--border);
+  display:grid;grid-template-columns:5px 1fr;
+}
+.cred-stripe{background:var(--sage);}
+.cred-banner.terra .cred-stripe{background:var(--terra);}
+.cred-banner.gold .cred-stripe{background:var(--gold);}
+.cred-banner.slate .cred-stripe{background:#5a6a7a;}
+.cred-inner{
+  background:var(--white);
+  padding:1.4rem 1.8rem;
+  display:flex;
+  flex-direction:row;
+  gap:1.5rem 2.5rem;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:nowrap;
+}
+.cred-left{flex:1;min-width:0;}
+.cred-year{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:0.3rem; font-family:'Source Sans 3',sans-serif;}
+.cred-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;line-height:1.25;margin-bottom:0.2rem;}
+.cred-org{font-size:0.88rem;color:var(--ink-mid); font-family:'Source Sans 3',sans-serif;}
+.cred-bullets{margin-top:0.6rem;display:flex;flex-direction:column;gap:3px;}
+.cred-bullets li{font-size:0.84rem;color:var(--ink-mid);list-style:none;display:flex;gap:6px;line-height:1.55; font-family:'Source Sans 3',sans-serif;}
+.cred-bullets li::before{content:'—';color:var(--sage);flex-shrink:0;}
+.cred-banner.terra .cred-bullets li::before{color:var(--terra);}
+.cred-banner.gold .cred-bullets li::before{color:var(--gold);}
+.cred-banner.slate .cred-bullets li::before{color:#5a6a7a;}
+.cred-right{display:flex;flex-direction:row;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;}
+.cred-pill{font-size:0.62rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:4px 12px;border-radius:100px;background:var(--sage-light);color:var(--sage);white-space:nowrap; font-family:'Source Sans 3',sans-serif;}
+.cred-banner.terra .cred-pill{background:var(--terra-light);color:var(--terra);}
+.cred-banner.gold .cred-pill{background:var(--gold-light);color:var(--gold);}
+.cred-banner.slate .cred-pill{background:#e8ebee;color:#5a6a7a;}
+
+/* ── PORTFOLIO ── */
+.port-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2.2rem;}
+.port-tab{
+  padding:8px 20px;border-radius:100px;border:1.5px solid var(--border-mid);
+  font-size:0.82rem;font-weight:600;letter-spacing:0.04em;cursor:pointer;
+  background:var(--white);color:var(--ink-muted);transition:all .2s;
+  font-family:'Source Sans 3',sans-serif;
+}
+.port-tab.active,.port-tab:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.port-panel{display:none;}
+.port-panel.active{display:block;}
+.sample-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.5rem;}
+.sample-head{
+  padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.75rem;
+}
+.sample-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:5px;}
+.sample-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;}
+.sample-platform{font-size:0.78rem;color:var(--ink-muted);white-space:nowrap;align-self:flex-start; font-family:'Source Sans 3',sans-serif;}
+.sample-body{padding:1.6rem;}
+.s-label{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-muted);margin-top:1.3rem;margin-bottom:0.4rem;display:flex;align-items:center;gap:7px; font-family:'Source Sans 3',sans-serif;}
+.s-label:first-child{margin-top:0;}
+.s-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.s-block{background:var(--paper);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:1rem 1.2rem;font-size:0.93rem;line-height:1.8;color:var(--ink);}
+.s-block.hook{border-left-color:var(--terra);background:var(--terra-light);font-weight:500;}
+.s-block.cta{border-left-color:var(--gold);background:var(--gold-light);}
+.s-block.broll{border-left-color:#7c5cbf;background:#f5f0ff;font-style:italic;font-size:0.87rem;color:var(--ink-mid);}
+.s-block.clip{border-left-color:var(--niagara);background:var(--niagara-light);}
+.s-block.question{border-left-color:var(--sage-mid);background:var(--sage-light);}
+.insight{margin-top:1.1rem;background:var(--sage-light);border-radius:10px;padding:1rem 1.2rem;font-size:0.85rem;color:var(--ink-mid);line-height:1.65;}
+.insight strong{color:var(--sage);}
+.seo-box{margin-top:.85rem;background:var(--niagara-light);border-radius:10px;padding:.85rem 1.2rem;font-size:0.85rem;color:var(--ink-mid);line-height:1.65;}
+.seo-box strong{color:var(--niagara);}
+.seg-list{border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.seg-item{display:flex;gap:.9rem;padding:1rem 1.2rem;border-bottom:1px solid var(--border);align-items:flex-start;}
+.seg-item:last-child{border-bottom:none;}
+.seg-num{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.67rem;font-weight:700;}
+.n-sage{background:var(--sage-light);color:var(--sage);}
+.n-terra{background:var(--terra-light);color:var(--terra);}
+.n-gold{background:var(--gold-light);color:var(--gold);}
+.n-blue{background:var(--niagara-light);color:var(--niagara);}
+.n-purple{background:#f0eaff;color:#7c5cbf;}
+.seg-content h4{font-size:0.9rem;font-weight:600;margin-bottom:3px;}
+.seg-content p{font-size:0.85rem;color:var(--ink-mid);line-height:1.55;}
+.clip-tag{display:inline-block;margin-top:4px;font-size:0.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:2px 9px;border-radius:100px;background:var(--niagara-light);color:var(--niagara); font-family:'Source Sans 3',sans-serif;}
+.chapter-list{border:1px solid var(--border);border-radius:10px;overflow:hidden;list-style:none;}
+.chapter-item{display:flex;gap:.9rem;padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-size:0.88rem;}
+.chapter-item:last-child{border-bottom:none;}
+.ch-time{font-size:0.7rem;font-weight:700;color:var(--terra);min-width:48px;margin-top:2px;font-variant-numeric:tabular-nums; font-family:'Source Sans 3',sans-serif;}
+.ch-text{color:var(--ink-mid);line-height:1.55;}
+.ch-text strong{color:var(--ink);}
+.shownotes-meta{display:flex;flex-wrap:wrap;gap:.75rem;padding:.9rem 1.2rem;background:var(--paper);border-radius:10px;margin-bottom:1.1rem;font-size:0.85rem;color:var(--ink-mid); font-family:'Source Sans 3',sans-serif;}
+.hook-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1rem;}
+.hook-head{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.3rem;border-bottom:1px solid var(--border);}
+.hook-topic{font-size:0.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--terra); font-family:'Source Sans 3',sans-serif;}
+.hook-fmt{font-size:0.7rem;color:var(--ink-muted); font-family:'Source Sans 3',sans-serif;}
+.hook-body{padding:1.1rem 1.3rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;line-height:1.75;color:var(--ink);}
+.hook-rationale{padding:.8rem 1.3rem;background:var(--paper);font-size:0.83rem;color:var(--ink-mid);line-height:1.65;border-top:1px solid var(--border); font-family:'Source Sans 3',sans-serif;}
+.hook-rationale strong{color:var(--sage);}
+.ep-title-item{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:.9rem;}
+.ep-title-head{padding:.9rem 1.2rem;border-bottom:1px solid var(--border);}
+.ep-title-text{font-weight:600;font-size:0.95rem;margin-bottom:3px;}
+.ep-lever{font-size:0.64rem;color:var(--terra);font-weight:700;letter-spacing:.07em;text-transform:uppercase; font-family:'Source Sans 3',sans-serif;}
+.ep-title-body{padding:.9rem 1.2rem;font-size:0.87rem;color:var(--ink-mid);line-height:1.65;}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.social-post{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;display:flex;flex-direction:column;gap:.9rem;}
+.sp-head{display:flex;align-items:center;gap:10px;}
+.sp-avatar{width:38px;height:38px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;color:white;font-size:0.64rem;font-weight:700;flex-shrink:0;text-align:center;line-height:1.2;}
+.sp-name{font-size:0.88rem;font-weight:600;}
+.sp-date{font-size:0.7rem;color:var(--ink-muted); font-family:'Source Sans 3',sans-serif;}
+.sp-body{font-size:0.87rem;line-height:1.75;color:var(--ink-mid);}
+.sp-body strong{color:var(--ink);}
+.sp-tags{font-size:0.75rem;color:var(--niagara);line-height:1.6; font-family:'Source Sans 3',sans-serif;}
+.placeholder-box{background:var(--paper);border:1.5px dashed var(--border-mid);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;color:var(--ink-muted);}
+.placeholder-box p{font-size:0.9rem;margin-top:.5rem; font-family:'Source Sans 3',sans-serif;}
+
+/* ── ADMIN / VISUALS — bigger, individual highlight mockups ── */
+.mockup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+.mockup-slot{
+  background:var(--white);
+  border:2px dashed var(--border-mid);
+  border-radius:var(--radius);
+  aspect-ratio:16/11;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.75rem;color:var(--ink-muted);font-size:0.88rem;text-align:center;padding:1.5rem;
+  transition:all .25s;
+  box-shadow:0 2px 12px rgba(30,45,64,0.05);
+  cursor:pointer;
+  position:relative;overflow:hidden;
+  font-family:'Source Sans 3',sans-serif;
+}
+.mockup-slot::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(45,125,138,0.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+.mockup-slot:hover{
+  border-color:var(--sage-mid);
+  box-shadow:0 6px 24px rgba(45,125,138,0.14);
+  transform:translateY(-3px);
+  background:var(--sage-light);
+  color:var(--sage);
+}
+.mockup-slot span:first-child{font-size:2.4rem;display:block;}
+.mockup-slot .mockup-label{font-weight:600;font-size:0.88rem;color:var(--ink);margin-top:2px;}
+.mockup-slot .mockup-hint{font-size:0.72rem;color:var(--ink-muted);margin-top:3px;}
+
+/* ── TOOLS — bubble grid ── */
+.tools-section{background:var(--paper);}
+.tools-cat-section{margin-bottom:2.8rem;}
+.tools-cat-label{font-size:0.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);margin:0 0 1.1rem;display:flex;align-items:center;gap:10px; font-family:'Source Sans 3',sans-serif;}
+.tools-cat-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* Single unified bubble container per category */
+.tools-bubble-wrap{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.6rem 1.8rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  align-items:center;
+}
+.tool-bubble{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.5rem;
+  background:var(--cream);
+  border:1.5px solid var(--border-mid);
+  border-radius:16px;
+  padding:1rem 1.25rem 0.85rem;
+  min-width:88px;
+  cursor:default;
+  transition:all .22s cubic-bezier(.4,0,.2,1);
+  position:relative;
+  flex-shrink:0;
+}
+.tool-bubble:hover{
+  background:var(--white);
+  border-color:var(--terra);
+  box-shadow:0 4px 18px rgba(184,150,62,0.18);
+  transform:translateY(-3px) scale(1.04);
+}
+.tool-bubble-icon{
+  font-size:1.9rem;
+  line-height:1;
+  display:block;
+}
+.tool-bubble-name{
+  font-size:0.78rem;
+  font-weight:700;
+  color:var(--ink);
+  text-align:center;
+  line-height:1.3;
+  letter-spacing:0.01em;
+  font-family:'Source Sans 3',sans-serif;
+  white-space:nowrap;
+}
+.tool-bubble:hover .tool-bubble-name{
+  color:var(--terra);
+}
+
+/* ── APPROACH ── */
+.approach-section{background:var(--ink);color:var(--cream);}
+.approach-section .ey-text{color:var(--sage-mid);}
+.approach-section .ey-line{background:var(--sage-mid);}
+.approach-section .section-title{color:var(--cream);}
+.approach-section .section-sub{color:rgba(245,240,232,.62);}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem;}
+.pillar{border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.75rem;}
+.pillar-n{font-family:'Playfair Display',serif;font-size:2.6rem;color:rgba(255,255,255,.1);font-weight:700;line-height:1;margin-bottom:.75rem;}
+.pillar h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream);margin-bottom:.5rem;}
+.pillar p{font-size:0.9rem;color:rgba(245,240,232,.62);line-height:1.75; font-family:'Source Sans 3',sans-serif;}
+.approach-quote{margin-top:2rem;padding:2.2rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);text-align:center;}
+.approach-quote blockquote{font-family:'Playfair Display',serif;font-size:1.45rem;font-style:italic;color:var(--cream);line-height:1.55;max-width:640px;margin:0 auto .75rem;}
+.approach-quote cite{font-size:0.72rem;color:rgba(245,240,232,.4);letter-spacing:.08em;text-transform:uppercase; font-family:'Source Sans 3',sans-serif;}
+
+/* ── SOCIALS / CONTACT ── */
+.socials-section{background:var(--paper);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.contact-left h2{font-size:clamp(1.9rem,3vw,2.7rem);margin-bottom:.85rem;}
+.contact-left p{font-size:0.95rem;color:var(--ink-mid);line-height:1.85;margin-bottom:1.6rem; font-family:'Source Sans 3',sans-serif;}
+.btn-email{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--terra);color:var(--cream);
+  padding:13px 30px;border-radius:100px;
+  font-size:0.9rem;font-weight:600;transition:all .2s;
+  font-family:'Source Sans 3',sans-serif;
+}
+.btn-email:hover{background:#8a3618;transform:translateY(-1px);}
+.contact-links{list-style:none;display:flex;flex-direction:column;gap:.85rem;margin-top:2rem;}
+.contact-item{
+  display:flex;align-items:center;gap:1.1rem;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:1rem 1.2rem;
+  transition:border-color .2s;
+}
+.contact-item:hover{border-color:var(--sage-mid);}
+.ci-icon{width:36px;height:36px;border-radius:8px;background:var(--sage-light);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;}
+.ci-label{font-size:0.64rem;color:var(--ink-muted);letter-spacing:.07em;text-transform:uppercase; font-family:'Source Sans 3',sans-serif;}
+.ci-value{font-size:0.88rem;font-weight:500;color:var(--ink); font-family:'Source Sans 3',sans-serif;}
+.contact-name-block{display:flex;align-items:center;gap:1.3rem;padding-top:1.6rem;margin-top:1.6rem;border-top:1px solid var(--border);}
+.contact-avatar{width:70px;height:70px;border-radius:50%;overflow:hidden;border:3px solid var(--white);box-shadow:0 4px 16px rgba(30,45,64,.14);flex-shrink:0;background:linear-gradient(135deg,var(--sage-light),var(--gold-light));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--sage);}
+.contact-avatar img{width:100%;height:100%;object-fit:cover;}
+.contact-id-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;line-height:1.2;}
+.contact-id-sub{font-size:0.68rem;color:var(--ink-muted);letter-spacing:.07em;text-transform:uppercase;margin-top:2px; font-family:'Source Sans 3',sans-serif;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(245,240,232,.4);padding:1.6rem 2.8rem;display:flex;align-items:center;justify-content:space-between;font-size:0.78rem; font-family:'Source Sans 3',sans-serif;}
+footer .fn{color:rgba(245,240,232,.75);font-family:'Playfair Display',serif;}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:0 1.4rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:5.5rem 1.4rem 3rem;gap:2.2rem;}
+  section{padding:3.5rem 1.4rem;}
+  .carousel-wrap{margin:0 -1.4rem;padding:0 1.4rem;}
+  .svc-card{flex:0 0 calc(85% - 1rem);}
+  .contact-grid,.social-grid,.pillars,.mockup-grid{grid-template-columns:1fr;}
+  .cred-inner{flex-direction:column;align-items:flex-start;}
+  .cred-right{flex-direction:row;}
+  .mockup-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-name">Alessandra Faye Caaya</span>
+    <span class="nav-sub">Podcast Prod · Writer · Curator</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#socials">Socials</a></li>
+  </ul>
+  <a href="/cdn-cgi/l/email-protection#3c5a5d45595859464a53494f0e087c5b515d5550125f5351034f495e56595f48017059481b4f190e0c6b534e57190e0c68535b594854594e" class="nav-cta">Get in Touch →</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      <span class="eyebrow-text">Available for Freelance · Philippines · PH Time</span>
+    </div>
+    <h1>Words that <em>captivate.</em><br>Systems that <em>scale.</em></h1>
+    <p class="hero-desc">Psychology-trained writer and social strategist. I don't just create content — I architect audience behavior.</p>
+    <div class="hero-skills">
+      <span class="skill-pill">Podcast Production</span>
+      <span class="skill-pill">Scriptwriting</span>
+      <span class="skill-pill">Content Strategy</span>
+      <span class="skill-pill">Creative Writing</span>
+      <span class="skill-pill">Content Curation</span>
+      <span class="skill-pill">Research</span>
+      <span class="skill-pill">Graphic Design</span>
+      <span class="skill-pill">Video Editing</span>
+      <span class="skill-pill">Email Management</span>
+      <span class="skill-pill">Scheduling</span>
+      <span class="skill-pill">Chat Support</span>
+      <span class="skill-pill">Admin Tasks</span>
+      <span class="skill-pill">Recruitment</span>
+    </div>
+    <a href="#portfolio" class="hero-btn">View my work →</a>
+  </div>
+  <div class="hero-card">
+    <div class="hc-stat">
+      <div class="hc-num">9+</div>
+      <div class="hc-label">Years of writing</div>
+      <div class="hc-detail">Technical, creative, editorial, academic — since 2016</div>
+    </div>
+    <div class="hc-stat">
+      <div class="hc-num">BS Psychology</div>
+      <div class="hc-label">GPA 1.14 · Top Performer</div>
+      <div class="hc-detail">PUP · DOST-SEI Scholar · President's Lister</div>
+    </div>
+    <div class="hc-stat">
+      <div class="hc-num">aCPHR</div>
+      <div class="hc-label">Rank 2 · National Level</div>
+      <div class="hc-detail">International HR Institute · Assembly 30</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" class="services-section">
+  <div class="section-inner">
+    <div class="section-eyebrow"><div class="ey-line"></div><span class="ey-text">What I do</span></div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">Where psychology meets craft. Every service rooted in how people think, feel, and decide.</p>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carTrack">
+      <div class="svc-card active-card">
+        <span class="svc-icon">🎙</span>
+        <div class="svc-title">Podcast Writer & Editor</div>
+        <div class="svc-desc">Show notes, episode titles, guest outreach emails, clip captions, and transcript editing — turning raw recordings into polished, audience-ready content.</div>
+        <div class="svc-tags"><span class="svc-tag">Show Notes</span><span class="svc-tag">Episode Titles</span><span class="svc-tag">Transcript Edit</span><span class="svc-tag">Descript</span><span class="svc-tag">TurboScribe</span></div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">📱</span>
+        <div class="svc-title">TikTok & YouTube Scriptwriter</div>
+        <div class="svc-desc">Short-form hooks that stop the scroll. Long-form frameworks designed to generate clips. Scripts for talking heads, VO + B-roll, testimonials, and ads.</div>
+        <div class="svc-tags"><span class="svc-tag">Short-form</span><span class="svc-tag">Hooks</span><span class="svc-tag">Ad Copy</span><span class="svc-tag">Long-form Outlines</span></div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">✍️</span>
+        <div class="svc-title">Content & Creative Writer</div>
+        <div class="svc-desc">Feature articles, social captions, flash fiction, poetry, and branded copy — nine years across STEM, mental health, lifestyle, and more.</div>
+        <div class="svc-tags"><span class="svc-tag">Captions</span><span class="svc-tag">Articles</span><span class="svc-tag">Poetry</span><span class="svc-tag">Copywriting</span></div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🔍</span>
+        <div class="svc-title">Researcher & Curator</div>
+        <div class="svc-desc">Deep-dive research, source verification, topic mining, and content curation — giving creators and brands the credibility that comes from knowing the material.</div>
+        <div class="svc-tags"><span class="svc-tag">Research</span><span class="svc-tag">Content Curation</span><span class="svc-tag">Fact-checking</span><span class="svc-tag">Angle Mining</span></div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-icon">🗂</span>
+        <div class="svc-title">Administrative Support</div>
+        <div class="svc-desc">Email management, calendar scheduling, chat support, recruitment coordination — organized, reliable, and detail-oriented behind-the-scenes support.</div>
+        <div class="svc-tags"><span class="svc-tag">Email Mgmt</span><span class="svc-tag">Scheduling</span><span class="svc-tag">Chat Support</span><span class="svc-tag">Recruitment</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="section-inner" style="margin-top:1.4rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div class="carousel-dots" id="carDots">
+        <div class="cdot active" onclick="goSlide(0)"></div>
+        <div class="cdot" onclick="goSlide(1)"></div>
+        <div class="cdot" onclick="goSlide(2)"></div>
+        <div class="cdot" onclick="goSlide(3)"></div>
+        <div class="cdot" onclick="goSlide(4)"></div>
+      </div>
+      <div class="carousel-btns">
+        <button class="car-btn" onclick="moveCarousel(-1)">←</button>
+        <button class="car-btn" onclick="moveCarousel(1)">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ CREDENTIALS ═══ -->
+<section id="credentials">
+  <div class="section-inner">
+    <div class="section-eyebrow"><div class="ey-line"></div><span class="ey-text">Background</span></div>
+    <h2 class="section-title">Credentials</h2>
+    <p class="section-sub">Education, certification, and real-world experience that shape every word I write.</p>
+
+    <div class="cred-list">
+
+      <div class="cred-banner">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">2021–2025</div>
+            <div class="cred-title">Bachelor of Science in Psychology</div>
+            <div class="cred-org">Polytechnic University of the Philippines</div>
+            <ul class="cred-bullets">
+              <li>GPA 1.14 — Top Performer, President's Lister</li>
+              <li>DOST-SEI Scholar — merit-based national scholarship</li>
+              <li>Thesis Leader — research design & team management</li>
+              <li>Social Media Publication & Research, Org Committee</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">Psychology</span>
+            <span class="cred-pill">Research</span>
+            <span class="cred-pill">Top Performer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-banner terra">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">2025</div>
+            <div class="cred-title">Associate Certified Practitioner in Human Resources</div>
+            <div class="cred-org">International HR Institute · Rank 2, Assembly 30</div>
+            <ul class="cred-bullets">
+              <li>Ranked 2nd nationally out of all Assembly 30 candidates</li>
+              <li>Applied behavioral frameworks to communication & audience insight</li>
+              <li>Strengthened question framing and behavioral interviewing</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">aCPHR</span>
+            <span class="cred-pill">Rank 2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-banner gold">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">2025</div>
+            <div class="cred-title">Podcast Management Training</div>
+            <div class="cred-org">Virtual Pursuit Collective</div>
+            <ul class="cred-bullets">
+              <li>Scripts, show notes, and content hooks for audience retention</li>
+              <li>Repurposed long-form content into short-form formats</li>
+              <li>Trained in Descript, Podbean, and TurboScribe workflows</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">Podcast Writing</span>
+            <span class="cred-pill">Audio Editing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-banner terra">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">2024</div>
+            <div class="cred-title">Human Resources Intern — People & Culture Division</div>
+            <div class="cred-org">Megaworld Corporation</div>
+            <ul class="cred-bullets">
+              <li>Led candidate sourcing, pre-screening, and structured interview summaries</li>
+              <li>Analyzed candidate responses and communication patterns</li>
+              <li>Proofread and edited professional documents for clarity and tone</li>
+              <li>Managed high-volume communication — calls, emails, scheduling</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">HR</span>
+            <span class="cred-pill">Recruitment</span>
+            <span class="cred-pill">Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-banner slate">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">Clinical Exposure</div>
+            <div class="cred-title">Practicum — Psychiatric & Custodial Care</div>
+            <div class="cred-org">JRT Psychiatric and Custodial Home Care</div>
+            <ul class="cred-bullets">
+              <li>Applied psychological principles in a clinical care setting</li>
+              <li>Observed patient communication patterns and behavioral indicators</li>
+              <li>Developed empathy-driven communication skills in sensitive environments</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">Psychology</span>
+            <span class="cred-pill">Clinical</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-banner">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">2016–Present</div>
+            <div class="cred-title">Freelance — Technical & Creative Writer, Researcher, Designer</div>
+            <div class="cred-org">Commission-based · Local & International Clients</div>
+            <ul class="cred-bullets">
+              <li>Short stories, flash fiction, poems, and prose for diverse clientele</li>
+              <li>Social media captions, branding articles, and promotional write-ups</li>
+              <li>Feature articles across STEM, mental health, relationship, and lifestyle</li>
+              <li>Research papers, theses, professional reports and presentations</li>
+              <li>Logos, publication materials, and packaging design for small businesses</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">Freelance</span>
+            <span class="cred-pill">9+ Years</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cred-banner">
+        <div class="cred-stripe"></div>
+        <div class="cred-inner">
+          <div class="cred-left">
+            <div class="cred-year">2015–2021</div>
+            <div class="cred-title">STEM Graduate — High Honors</div>
+            <div class="cred-org">Taguig Science High School · GWA: 95</div>
+            <ul class="cred-bullets">
+              <li>Associate Editor, English School Paper Publication (PRISM)</li>
+              <li>Top Placer — TV Broadcasting, Field Reporting, Scriptwriting</li>
+            </ul>
+          </div>
+          <div class="cred-right">
+            <span class="cred-pill">STEM</span>
+            <span class="cred-pill">High Honors</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ PORTFOLIO ═══ -->
+<section id="portfolio">
+  <div class="section-inner">
+    <div class="section-eyebrow"><div class="ey-line"></div><span class="ey-text">Portfolio</span></div>
+    <h2 class="section-title">Selected Works</h2>
+    <p class="section-sub">Real client work and original samples — organized by category.</p>
+
+    <div class="port-tabs">
+      <button class="port-tab active" onclick="portTab(this,'p-podcast')">🎙 Podcast</button>
+      <button class="port-tab" onclick="portTab(this,'p-scripts')">📱 Scripts</button>
+      <button class="port-tab" onclick="portTab(this,'p-social')">📣 Social Media</button>
+      <button class="port-tab" onclick="portTab(this,'p-creative')">✍️ Creative</button>
+      <button class="port-tab" onclick="portTab(this,'p-mockups')">🗂 Admin / Visuals</button>
+    </div>
+
+    <!-- ── PODCAST TAB ── -->
+    <div id="p-podcast" class="port-panel active">
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-pod">Podcast Writing</span><span class="badge b-real">Real Work</span></div>
+            <div class="sample-title">Show Notes — "She Can Share" Podcast</div>
+          </div>
+          <div class="sample-platform">Edited from live transcript · TurboScribe</div>
+        </div>
+        <div class="sample-body">
+          <p style="font-size:0.9rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.75;">Structured show notes from a raw, unedited audio transcript for <em>She Can Share</em> — a faith-based entrepreneurship podcast. Turned casual recording into a polished, retention-optimized episode page.</p>
+          <div class="shownotes-meta"><span>🎙 She Can Share</span><span>⏱ ~25 min</span><span>🎯 Faith-based entrepreneurship</span></div>
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Episode Title</div>
+          <div class="s-block hook">Why You're Working Hard but Getting Nowhere — And the 4 Shifts That Change Everything</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Episode Description</div>
+          <div class="s-block">You're doing all the things. The early mornings, the content batches, the systems. So why does momentum still feel out of reach?<br><br>In this episode, Melissa gets real about the four hidden reasons high-capacity women stall — even when they're doing "everything right." Spoiler: it's not about working harder. It's about working on the right things, in the right season.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Chapter Markers</div>
+          <ul class="chapter-list">
+            <li class="chapter-item"><span class="ch-time">[00:30]</span><div class="ch-text"><strong>The Momentum Trap</strong> — Why working harder is often just running in place.</div></li>
+            <li class="chapter-item"><span class="ch-time">[03:35]</span><div class="ch-text"><strong>Hiding in the Details</strong> — How perfectionism keeps you busy but not profitable.</div></li>
+            <li class="chapter-item"><span class="ch-time">[08:14]</span><div class="ch-text"><strong>Navigating the Trust Recession</strong> — Building authority in a skeptical world.</div></li>
+            <li class="chapter-item"><span class="ch-time">[16:29]</span><div class="ch-text"><strong>The Power of Firebrands</strong> — Why you're one connection away from your next level.</div></li>
+            <li class="chapter-item"><span class="ch-time">[18:24]</span><div class="ch-text"><strong>Planting vs. Harvesting</strong> — A mindset check for those who feel like they're failing.</div></li>
+            <li class="chapter-item"><span class="ch-time">[23:53]</span><div class="ch-text"><strong>The Imposter Clause</strong> — Why feeling unqualified is a sign you're on the right path.</div></li>
+          </ul>
+          <div class="insight"><strong>Editor's note:</strong> Original audio was casual and unstructured. I identified key teaching moments, built the chapter flow for retention, and rewrote the description to lead with the listener's pain point — not the host's agenda.</div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-pod">Podcast Writing</span><span class="badge b-real">Real Work</span></div>
+            <div class="sample-title">Guest Invite Email + Captions — "One Stop Wisdom"</div>
+          </div>
+          <div class="sample-platform">Original concept · Podcast Manager Training</div>
+        </div>
+        <div class="sample-body">
+          <p style="font-size:0.9rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.75;"><em>One Stop Wisdom</em> — a social-experiment podcast filmed on public transit, capturing commuter conversations about adulthood. Developed as training submission for Virtual Pursuit Collective.</p>
+          <div class="s-label"><div class="s-dot" style="background:var(--gold)"></div>Guest Invite Email</div>
+          <div class="s-block cta" style="font-style:normal;">Hi Jeff,<br><br>I've been following your work and truly appreciate how you've built a platform where mental health conversations feel grounded and accessible. We'd love to feature you on <em>One Stop Wisdom</em> for an episode titled: <strong>"[EP. 4] TRAIN of Thought: What's the Hardest Part of Adulting Nobody Talks About?"</strong></div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Social Captions</div>
+          <div class="s-block" style="margin-bottom:.75rem;">Sometimes the strongest faith doesn't start with certainty — it starts with questions. 🚇 What question changed the way you see life?<br><span style="color:var(--niagara);font-size:0.82rem;">#OneStopWisdom #FaithAndQuestions #AdultingTalks</span></div>
+          <div class="s-block">🚇 Between Stops and the bustling crowd of lost souls — we're onto Episode 2. <em>Feeling stuck isn't failure. Sometimes it's the space between where you are and where you're meant to go.</em><br><span style="color:var(--niagara);font-size:0.82rem;">#OneStopWisdom #FeelingStuck #AdultingStruggles</span></div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-pod">Podcast Writing</span><span class="badge b-sample">Original Sample</span></div>
+            <div class="sample-title">Show Notes — TED Talks Daily: "Why the World Is Still Not Built for Women"</div>
+          </div>
+          <div class="sample-platform">Self-initiated · Sample format</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Opening Hook</div>
+          <div class="s-block hook"><em>Do you feel comfortable and safe in your chair, in your car, and in your surroundings?</em><br><br>For some, the answer is a simple "yes." For those who feel deeply — it's more complicated than you think.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Episode Description</div>
+          <div class="s-block">Design researcher Virginia Santy brings to the table the invisible blueprints shaping women's lives. It's time to stop asking why you don't fit the world — and start asking why the world wasn't built for you.</div>
+          <ul class="chapter-list" style="margin-top:.75rem;">
+            <li class="chapter-item"><span class="ch-time">[01:12]</span><div class="ch-text"><strong>The Vitruvian Legacy</strong> — How a 15th-century drawing still dictates modern ergonomics.</div></li>
+            <li class="chapter-item"><span class="ch-time">[02:45]</span><div class="ch-text"><strong>The Office "Freeze"</strong> — The biological reason your workplace temperature feels like the Arctic.</div></li>
+            <li class="chapter-item"><span class="ch-time">[04:10]</span><div class="ch-text"><strong>Safety by Design</strong> — Why car safety features are still lagging for diverse body types.</div></li>
+            <li class="chapter-item"><span class="ch-time">[06:30]</span><div class="ch-text"><strong>Designing for the Future</strong> — Moving toward environments that prioritize inclusivity over "averages."</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-pod">Podcast Strategy</span><span class="badge b-real">Real Work</span></div>
+            <div class="sample-title">Episode Titles with Strategic Rationale</div>
+          </div>
+          <div class="sample-platform">Business / Entrepreneurship niche</div>
+        </div>
+        <div class="sample-body">
+          <div class="ep-title-item"><div class="ep-title-head"><div class="ep-title-text">Stop Polishing, Start Profiting: Identifying Your High-ROI Activities</div><div class="ep-lever">Lever: Behavioral reframe</div></div><div class="ep-title-body">Targets the costly pattern of mistaking activity for progress. The promise is direct: shift your focus, shift your results.</div></div>
+          <div class="ep-title-item"><div class="ep-title-head"><div class="ep-title-text">The "Unqualified" Advantage: Using Your Imposter Syndrome to Scale</div><div class="ep-lever">Lever: Cognitive reappraisal</div></div><div class="ep-title-body">Reframes imposter syndrome as a performance signal — not a limitation. Emotionally validating and action-orienting simultaneously.</div></div>
+          <div class="ep-title-item"><div class="ep-title-head"><div class="ep-title-text">How "Invisible Bias" is Costing You Clients</div><div class="ep-lever">Lever: Loss aversion</div></div><div class="ep-title-body">Loss aversion is one of the strongest behavioral motivators. The title implies a blind spot that must be corrected now.</div></div>
+          <div class="ep-title-item"><div class="ep-title-head"><div class="ep-title-text">Stop Tweaking Your Website. Do These 3 Things Instead.</div><div class="ep-lever">Lever: Pattern interruption + specificity</div></div><div class="ep-title-body">The commanding "Stop" creates pattern interruption. "3 things" reduces cognitive load and signals a structured, actionable episode.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SCRIPTS TAB ── -->
+    <div id="p-scripts" class="port-panel">
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-script">Short-Form</span><span class="badge b-pod">Mental Health</span></div>
+            <div class="sample-title">Burnout Isn't Laziness — It's Your Nervous System Screaming</div>
+          </div>
+          <div class="sample-platform">IG Reels · TikTok · YouTube Shorts · 30–45 sec</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Hook (0–4s) — Pattern Interruption</div>
+          <div class="s-block hook">"You're not lazy. You're not unmotivated. Your brain has literally run out of fuel — and no amount of willpower is going to fix that."</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Insight (4–25s) — VO + B-Roll</div>
+          <div class="s-block">Burnout isn't a mindset problem. It's physiological. Chronic stress keeps cortisol elevated — depleting your dopamine reserves. No dopamine means no drive, no focus, no joy. And here's what nobody talks about: sleep apnea keeps your body in a low-level stress state all night. You wake up already running on empty.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--gold)"></div>Takeaway / CTA (25–35s)</div>
+          <div class="s-block cta">Rest is not a reward for productivity. It's a <em>prerequisite</em>. If you've been exhausted for months despite sleeping — look deeper than your schedule. Link in bio.</div>
+          <div class="s-label"><div class="s-dot" style="background:#7c5cbf"></div>Visual Thinking — B-Roll</div>
+          <div class="s-block broll">Hook: Person staring blankly at laptop, coffee untouched → zoom on dark under-eyes. Insight: Split-screen clock 3AM/7AM. Overlay: cortisol-dopamine loop graphic. Takeaway: Phone down, stepping outside, natural light. Text: "Rest is a prerequisite."</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--niagara)"></div>Clip Moment</div>
+          <div class="s-block clip">"Rest is not a reward for productivity. It's a prerequisite." — 8-sec standalone. Works as Reel cover, quote card, or Story.</div>
+          <div class="seo-box"><strong>SEO:</strong> burnout recovery, cortisol and dopamine, sleep apnea symptoms women, why am I always tired, nervous system burnout</div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-script">Short-Form</span><span class="badge b-social">Media & Mindset</span></div>
+            <div class="sample-title">Your Brain Wasn't Built for This Much Information</div>
+          </div>
+          <div class="sample-platform">TikTok · YouTube Shorts · Talking Head · 30 sec</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Hook (0–4s)</div>
+          <div class="s-block hook">"The average person consumes 34 gigabytes of information daily. Your brain processes the equivalent of 174 newspapers — before lunch."</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Insight (4–22s)</div>
+          <div class="s-block">We live in <em>continuous partial attention</em> — your brain always scanning for the next notification. Real cost: decision fatigue, anxiety spikes, mental exhaustion that sleep doesn't fix. The content wasn't made to inform you. A lot of it was designed to keep you consuming.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--gold)"></div>Takeaway / CTA (22–32s)</div>
+          <div class="s-block cta">You don't have to go offline. But your brain needs borders. Start with 30 minutes of intentional no-scroll time daily. Save this if it landed.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--niagara)"></div>Clip Moment</div>
+          <div class="s-block clip">"The content wasn't made to inform you. A lot of it was designed to keep you consuming." — High-share, provocative standalone.</div>
+          <div class="seo-box"><strong>SEO:</strong> media overconsumption, digital detox, doom scrolling effects, continuous partial attention, information overload anxiety</div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-script">Short-Form</span><span class="badge b-creative">Women's Health</span></div>
+            <div class="sample-title">PCOS Isn't Just a Period Problem — It's a Full-Body Signal</div>
+          </div>
+          <div class="sample-platform">IG Reels · TikTok · VO + B-Roll · 35–45 sec</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Hook (0–5s) — Personal Resonance</div>
+          <div class="s-block hook">"If you've been told your PCOS symptoms are 'just hormones' — your doctor is technically right. But they may have stopped one sentence too soon."</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Insight (5–28s)</div>
+          <div class="s-block">PCOS affects 1 in 10 women — but it's not just about periods. It's metabolic. Insulin resistance keeps blood sugar unstable, the body in chronic low-grade inflammation. That's why the fatigue hits differently. That's why the brain fog feels physical. That's why anxiety doesn't fully respond to therapy alone.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--gold)"></div>Takeaway / CTA (28–40s)</div>
+          <div class="s-block cta">You deserve care that treats the full picture. Follow for women's health content that actually goes there. Drop a 🌿 if this is your reality.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--niagara)"></div>Clip Moment</div>
+          <div class="s-block clip">"That's why the fatigue hits differently. That's why the brain fog feels physical." — Validating line with high save potential.</div>
+          <div class="seo-box"><strong>SEO:</strong> PCOS symptoms, insulin resistance women, PCOS and mental health, hormonal imbalance, polycystic ovary syndrome</div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-script">Long-Form Framework</span><span class="badge b-creative">Mini Documentary</span></div>
+            <div class="sample-title">Sick and Unseen: The State of Health in the Philippines</div>
+          </div>
+          <div class="sample-platform">YouTube · 8–12 min documentary</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Opening Hook / Framing (0:00–1:30)</div>
+          <div class="s-block hook">Open on a crowded public hospital corridor. VO: <em>"The Philippines has over 110 million people. And less than one psychiatrist for every 100,000 of them."</em> Cut to silence. Title card: SICK AND UNSEEN.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Key Segments</div>
+          <div class="seg-list">
+            <div class="seg-item"><div class="seg-num n-sage">1</div><div class="seg-content"><h4>The Access Gap (1:30–3:30)</h4><p>Geographic and economic barriers. PhilHealth vs. out-of-pocket reality. Data overlays: WHO doctor-to-patient ratio stats.</p><span class="clip-tag">Clip: "You can have insurance and still go untreated."</span></div></div>
+            <div class="seg-item"><div class="seg-num n-terra">2</div><div class="seg-content"><h4>The Mental Health Blind Spot (3:30–6:00)</h4><p>Philippines' 2018 Mental Health Act — limited implementation. Stigma rooted in culture, religion, family. Vox pop or anonymous voices.</p><span class="clip-tag">Clip: "We don't have a word for burnout in Filipino. We have a word for pushing through."</span></div></div>
+            <div class="seg-item"><div class="seg-num n-gold">3</div><div class="seg-content"><h4>Women's Bodies, Unheard (6:00–8:30)</h4><p>PCOS, endometriosis, reproductive conditions undiagnosed for years. Average diagnostic delay for endometriosis in SEA.</p><span class="clip-tag">Clip: "She was told it was normal. For seven years."</span></div></div>
+            <div class="seg-item"><div class="seg-num n-blue">4</div><div class="seg-content"><h4>What's Being Done (8:30–10:30)</h4><p>Barangay Health Centers, NGO initiatives, telehealth post-pandemic. Honest assessment: what works, what's underfunded.</p></div></div>
+            <div class="seg-item"><div class="seg-num n-purple">✦</div><div class="seg-content"><h4>Close + Call to Awareness (10:30–12:00)</h4><p>VO: <em>"Health is not a privilege. But in the Philippines, it often functions like one."</em> Resources, hotlines, free telehealth.</p><span class="clip-tag">Clip: Entire closing — standalone short.</span></div></div>
+          </div>
+          <div class="seo-box" style="margin-top:1rem;"><strong>SEO:</strong> healthcare Philippines, Philippine mental health system, PCOS Philippines, PhilHealth gaps, health access documentary</div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-pod">Podcast Script</span><span class="badge b-script">Long-Form</span></div>
+            <div class="sample-title">"You're Not Crazy" — Dismantling the Stigma Around Mental Disorders</div>
+          </div>
+          <div class="sample-platform">Podcast · Solo or Guest Format · 35–50 min</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Opening Hook / Framing (0:00–3:00)</div>
+          <div class="s-block hook">[Host] "Have you ever hesitated to tell someone you were seeing a therapist? There's this pause. This calculation. 'How will they see me?' And that pause? That's stigma doing exactly what it was built to do."</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Key Segments</div>
+          <div class="seg-list">
+            <div class="seg-item"><div class="seg-num n-sage">1</div><div class="seg-content"><h4>What Stigma Actually Does (3:00–12:00)</h4><p>Stigma delays help-seeking by an average of 11 years. Changes how people describe symptoms. Self-stigma: internalizing shame.</p><span class="clip-tag">Clip: "Stigma is not a feelings issue — it's a public health crisis."</span></div></div>
+            <div class="seg-item"><div class="seg-num n-terra">2</div><div class="seg-content"><h4>Where It Comes From (12:00–22:00)</h4><p>Language — "sira ulo," "crazy," "malabo ang utak." Media portrayals. Religious & cultural frames. Family system silence.</p><span class="clip-tag">Clip: Language segment — high share potential.</span></div></div>
+            <div class="seg-item"><div class="seg-num n-gold">3</div><div class="seg-content"><h4>The Disorders Nobody Talks About (22:00–33:00)</h4><p>OCD, ADHD in women, BPD, Cyclothymia. Guest prompt: "What's the most damaging misconception about your diagnosis?"</p><span class="clip-tag">Clip: Each disorder = 60–90 sec standalone clip.</span></div></div>
+            <div class="seg-item"><div class="seg-num n-blue">4</div><div class="seg-content"><h4>What Actually Helps (33:00–43:00)</h4><p>Contact-based destigmatization. Language shifts. How to respond when someone discloses. Finding a therapist in the Philippines.</p></div></div>
+            <div class="seg-item"><div class="seg-num n-purple">✦</div><div class="seg-content"><h4>Close (43:00–50:00)</h4><p>[Host] "Stigma doesn't just hurt people with diagnoses. It makes all of us less honest, less connected, less well." CTA: share with one person who needs this.</p></div></div>
+          </div>
+          <div class="s-label" style="margin-top:1rem;"><div class="s-dot" style="background:var(--niagara)"></div>Engagement Questions</div>
+          <div class="s-block question">"When did you first realize what you were experiencing had a name?" · "What do you wish your family understood about your diagnosis?" · "What would you say to someone told they're 'overreacting'?"</div>
+          <div class="seo-box" style="margin-top:.75rem;"><strong>SEO:</strong> mental health stigma Philippines, OCD misconceptions, ADHD women diagnosis, BPD stigma, therapy Philippines</div>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-script">Sample Hooks</span><span class="badge b-creative">Women's Health Niche</span></div>
+            <div class="sample-title">3 Original Hooks — Energy, Nutrition, Sleep</div>
+          </div>
+          <div class="sample-platform">TikTok / IG Reels / YouTube Shorts</div>
+        </div>
+        <div class="sample-body">
+          <p style="font-size:0.88rem;color:var(--ink-mid);margin-bottom:1rem;">Underserved intersection: women's health, hormones, nutrition, energy. Each uses a different psychological lever.</p>
+          <div class="hook-card"><div class="hook-head"><span class="hook-topic">Energy & Hormones</span><span class="hook-fmt">Talking Head · TikTok</span></div><div class="hook-body">"Nobody tells you that feeling tired all the time isn't a personality trait. It's a symptom. And it might have nothing to do with how much you sleep."</div><div class="hook-rationale"><strong>Lever: Identity reframe + curiosity gap.</strong> Challenges a belief women have internalized. Forces the question: then what is it?</div></div>
+          <div class="hook-card"><div class="hook-head"><span class="hook-topic">Nutrition & Women's Health</span><span class="hook-fmt">VO + B-Roll · YouTube Shorts</span></div><div class="hook-body">"Iron deficiency is the most common nutritional deficiency in the world — and women are four times more likely to have it. It mimics anxiety, depression, and ADHD. How many women have been misdiagnosed?"</div><div class="hook-rationale"><strong>Lever: Loss aversion + systemic critique.</strong> Stat establishes credibility. Symptom overlap triggers self-recognition. Rhetorical close drives comments, saves, shares.</div></div>
+          <div class="hook-card"><div class="hook-head"><span class="hook-topic">Sleep & Circadian Health</span><span class="hook-fmt">Testimonial · Instagram Reels</span></div><div class="hook-body">"I used to wake up more exhausted than when I went to bed. I tracked my sleep, took magnesium, bought a weighted blanket. Nothing worked — until I found out it wasn't a sleep problem. It was a blood sugar problem."</div><div class="hook-rationale"><strong>Lever: Narrative tension + pattern interruption.</strong> Familiar failure journey → unexpected pivot → reframes the entire problem category.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── SOCIAL MEDIA TAB ── -->
+    <div id="p-social" class="port-panel">
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-social">Social Media</span><span class="badge b-real">Real Work</span></div>
+            <div class="sample-title">STEM & Science Day Captions — PUP ADS</div>
+          </div>
+          <div class="sample-platform">PUP Association of DOST Scholars · 2023</div>
+        </div>
+        <div class="sample-body">
+          <p style="font-size:0.9rem;color:var(--ink-mid);margin-bottom:1rem;line-height:1.75;">Written as Social Media Publication and Research Member. These posts blend educational content with storytelling — making even STEM topics feel warm, celebratory, and shareable.</p>
+          <div class="social-grid">
+            <div class="social-post">
+              <div class="sp-head"><div class="sp-avatar">PUP<br>ADS</div><div><div class="sp-name">PUP ADS · Pride Month</div><div class="sp-date">June 16, 2023</div></div></div>
+              <div class="sp-body"><strong>Dr. Sally Ride Feature</strong><br><br><em>"And, when the world convenes for great courage; astronauts, through the seemingly blinding beam of light years, venture the massive mileage."</em><br><br>Sally Ride was not your ordinary female astronaut. As she soared toward the unknown, she discovered not only the celestial tapestries — but most importantly, an identity of her own.<br><br><em>In Astronautics, her impact amplified,<br>Breaking barriers, she personified.</em></div>
+              <div class="sp-tags">#HappyPrideMonth #Pride2023</div>
+            </div>
+            <div class="social-post">
+              <div class="sp-head"><div class="sp-avatar">PUP<br>ADS</div><div><div class="sp-name">PUP ADS · Science Feature</div><div class="sp-date">June 11, 2023</div></div></div>
+              <div class="sp-body"><strong>Summer Solstice 2023</strong><br><br><em>"SUN'S OUT, SOL'S OUT."</em><br><br>Between the spaces of the earth and the sun, <em>an astonishing equilibrium is demonstrated</em> — rebirthing to this very phenomenon we are about to experience.<br><br>May we all remember that days could be filled golden as ✨ <em>daylight~ daylight~</em> ✨</div>
+              <div class="sp-tags">#Summersolstice2023</div>
+            </div>
+          </div>
+          <div class="insight" style="margin-top:1rem;"><strong>Craft note:</strong> Written for an academic STEM org — not a lifestyle brand. The challenge: making science celebratory without dumbing it down. Original poetry, narrative framing, and educational content in one caption — deliberate, not accidental.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CREATIVE TAB ── -->
+    <div id="p-creative" class="port-panel">
+      <div class="sample-card">
+        <div class="sample-head">
+          <div>
+            <div class="sample-badges"><span class="badge b-creative">Creative Writing</span><span class="badge b-sample">Original Sample</span></div>
+            <div class="sample-title">Short-form Script — Wellness / Mental Health</div>
+          </div>
+          <div class="sample-platform">TikTok / Instagram Reels · 30 sec</div>
+        </div>
+        <div class="sample-body">
+          <div class="s-label"><div class="s-dot" style="background:var(--terra)"></div>Hook (0–3s)</div>
+          <div class="s-block hook">"Your body decides you're safe — or in danger — before your alarm even goes off."</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--sage)"></div>Insight (3–20s)</div>
+          <div class="s-block">That first 10 minutes after waking? Your cortisol is naturally spiking — your body's built-in alarm. But if you grab your phone immediately, you're telling that stress response: <em>yep, there's something to worry about.</em> So it keeps going.</div>
+          <div class="s-label"><div class="s-dot" style="background:var(--gold)"></div>Takeaway / CTA (20–30s)</div>
+          <div class="s-block cta">Give yourself 10 minutes screen-free after waking. Just 10. Let cortisol do its job — then settle. Your nervous system will thank you.</div>
+          <div class="s-label"><div class="s-dot" style="background:#7c5cbf"></div>B-Roll Direction</div>
+          <div class="s-block broll">Alarm going off → hand reaching for phone (pause mid-reach) → person lying still in soft morning light → close-up of hands around a warm mug.</div>
+          <div class="insight"><strong>Psychology applied:</strong> Pattern interruption + intrinsic relevance. The CTA is low-friction by design ("just 10") to maximize follow-through.</div>
+        </div>
+      </div>
+      <div class="placeholder-box">
+        <div style="font-size:1.9rem;margin-bottom:.6rem;">✦</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;">Poems & Articles — Coming Soon</div>
+        <p>Flash fiction, poetry, and feature articles currently being compiled. Request samples directly.</p>
+      </div>
+    </div>
+
+    <!-- ── ADMIN / VISUALS TAB ── -->
+    <div id="p-mockups" class="port-panel">
+      <p style="font-size:0.92rem;color:var(--ink-mid);line-height:1.8;margin-bottom:1.8rem;">Mockups and visual samples for email management, scheduling, and graphic design work — images can be added directly to these slots.</p>
+      <div class="mockup-grid">
+        <div class="mockup-slot">
+          <span>📧</span>
+          <span class="mockup-label">Email Management</span>
+          <span class="mockup-hint">Drop sample here</span>
+        </div>
+        <div class="mockup-slot">
+          <span>📅</span>
+          <span class="mockup-label">Scheduling / Calendar</span>
+          <span class="mockup-hint">Drop sample here</span>
+        </div>
+        <div class="mockup-slot">
+          <span>🎨</span>
+          <span class="mockup-label">Graphic Design</span>
+          <span class="mockup-hint">Drop sample here</span>
+        </div>
+        <div class="mockup-slot">
+          <span>📋</span>
+          <span class="mockup-label">Admin Task</span>
+          <span class="mockup-hint">Drop sample here</span>
+        </div>
+        <div class="mockup-slot">
+          <span>💬</span>
+          <span class="mockup-label">Chat Support</span>
+          <span class="mockup-hint">Drop sample here</span>
+        </div>
+        <div class="mockup-slot" style="border-color:var(--sage-mid);color:var(--sage);">
+          <span>➕</span>
+          <span class="mockup-label">Add Your Work Here</span>
+          <span class="mockup-hint">Click to upload</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Request full samples -->
+    <div style="margin-top:2.8rem;text-align:center;padding:2.2rem;background:var(--paper);border-radius:var(--radius);border:1px solid var(--border);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:.5rem;">Want to see more?</div>
+      <p style="font-size:0.9rem;color:var(--ink-mid);margin-bottom:1.4rem;">Additional samples across all categories available on request.</p>
+      <a href="/cdn-cgi/l/email-protection#c4a2a5bda1a0a1beb2abb1b7f6f084a3a9a5ada8eaa7aba9fbb7b1a6aea1a7b0f994abb6b0a2aba8adabe1f6f497a5a9b4a8a1e1f6f496a1b5b1a1b7b0e2a6aba0bdf98cade1f6f485a8a1b7b7a5aaa0b6a5e1f687e1f6f48de3a0e1f6f4a8abb2a1e1f6f4b0abe1f6f4b7a1a1e1f6f4a9abb6a1e1f6f4aba2e1f6f4bdabb1b6e1f6f4b3abb6afe5" class="hero-btn" style="display:inline-flex;">Request Full Samples →</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ TOOLS ═══ -->
+<section id="tools" class="tools-section">
+  <div class="section-inner">
+    <div class="section-eyebrow"><div class="ey-line"></div><span class="ey-text">Toolkit</span></div>
+    <h2 class="section-title">Tools I Work With</h2>
+    <p class="section-sub">Writing, design, audio, social, and AI — a versatile stack built for efficiency at every stage.</p>
+
+    <!-- Writing & Productivity -->
+    <div class="tools-cat-section">
+      <div class="tools-cat-label">📝 Writing & Productivity</div>
+      <div class="tools-bubble-wrap">
+        <div class="tool-bubble"><span class="tool-bubble-icon">📓</span><span class="tool-bubble-name">Notion</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📄</span><span class="tool-bubble-name">Google Docs</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📊</span><span class="tool-bubble-name">Google Sheets</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📑</span><span class="tool-bubble-name">Google Slides</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📧</span><span class="tool-bubble-name">Gmail</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📅</span><span class="tool-bubble-name">Google Cal</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📝</span><span class="tool-bubble-name">MS Word</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📈</span><span class="tool-bubble-name">MS Excel</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📊</span><span class="tool-bubble-name">PowerPoint</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📋</span><span class="tool-bubble-name">Trello</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🗓</span><span class="tool-bubble-name">Calendly</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">✍️</span><span class="tool-bubble-name">Medium</span></div>
+      </div>
+    </div>
+
+    <!-- Design & Visual -->
+    <div class="tools-cat-section">
+      <div class="tools-cat-label">🎨 Design & Visual</div>
+      <div class="tools-bubble-wrap">
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎨</span><span class="tool-bubble-name">Canva</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🅰</span><span class="tool-bubble-name">Adobe Suite</span></div>
+      </div>
+    </div>
+
+    <!-- Audio & Video -->
+    <div class="tools-cat-section">
+      <div class="tools-cat-label">🎙 Audio & Video</div>
+      <div class="tools-bubble-wrap">
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎬</span><span class="tool-bubble-name">CapCut</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎞</span><span class="tool-bubble-name">iMovie</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎙</span><span class="tool-bubble-name">Podbean</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">✂️</span><span class="tool-bubble-name">Descript</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📝</span><span class="tool-bubble-name">TurboScribe</span></div>
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="tools-cat-section">
+      <div class="tools-cat-label">📱 Social Media</div>
+      <div class="tools-bubble-wrap">
+        <div class="tool-bubble"><span class="tool-bubble-icon">👤</span><span class="tool-bubble-name">Facebook</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📸</span><span class="tool-bubble-name">Instagram</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎵</span><span class="tool-bubble-name">TikTok</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🐦</span><span class="tool-bubble-name">X (Twitter)</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🔴</span><span class="tool-bubble-name">YouTube</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎧</span><span class="tool-bubble-name">Spotify</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🎙</span><span class="tool-bubble-name">Podcasts</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🟠</span><span class="tool-bubble-name">Reddit</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">📹</span><span class="tool-bubble-name">Zoom</span></div>
+      </div>
+    </div>
+
+    <!-- AI Assistants -->
+    <div class="tools-cat-section">
+      <div class="tools-cat-label">🤖 AI Assistants</div>
+      <div class="tools-bubble-wrap">
+        <div class="tool-bubble"><span class="tool-bubble-icon">🤖</span><span class="tool-bubble-name">ChatGPT</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">🧠</span><span class="tool-bubble-name">Claude</span></div>
+        <div class="tool-bubble"><span class="tool-bubble-icon">✨</span><span class="tool-bubble-name">Gemini AI</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ═══ APPROACH ═══ -->
+<section id="approach" class="approach-section">
+  <div class="section-inner">
+    <div class="section-eyebrow"><div class="ey-line"></div><span class="ey-text">My approach</span></div>
+    <h2 class="section-title">Writer. Strategist. Student of people.</h2>
+    <p class="section-sub">I studied how people think — then applied it to how they read, watch, and respond.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-n">01</div>
+        <h3>Psychology first</h3>
+        <p>Every hook, title, and caption is grounded in behavioral science. What makes people stop, feel, and act. Not guesswork — principles.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-n">02</div>
+        <h3>Content as systems</h3>
+        <p>One podcast episode becomes five social posts, three clips, and an email. I design for repurposing from the first draft.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-n">03</div>
+        <h3>Voice over volume</h3>
+        <p>Consistency of tone builds more trust than frequency of output. I help brands find — and keep — a voice unmistakably theirs.</p>
+      </div>
+    </div>
+    <div class="approach-quote">
+      <blockquote>"Rooted in psychology, refined by taste — I create content that earns attention, not asks for it."</blockquote>
+      <cite>— Alessandra Faye Caaya</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIALS / CONTACT ═══ -->
+<section id="socials" class="socials-section">
+  <div class="section-inner">
+    <div class="section-eyebrow"><div class="ey-line"></div><span class="ey-text">Get in touch</span></div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2 class="section-title">Let's build something that connects.</h2>
+        <p>Open to ongoing freelance work — podcast writing, scriptwriting, content strategy, admin support, and more. On brief. On time.</p>
+        <a href="/cdn-cgi/l/email-protection#c0a6a1b9a5a4a5bab6afb5b3f2f480a7ada1a9aceea3afadffb3b5a2aaa5a3b4fd8ca5b4e7b3e5f2f097afb2abe5f2f094afa7a5b4a8a5b2e6a2afa4b9fd88a9e5f2f081aca5b3b3a1aea4b2a1e5f283e5f2f089e5f2f0a6afb5aea4e5f2f0b9afb5b2e5f2f0b0afb2b4a6afaca9afe5f2f0a1aea4e5f2f0b7afb5aca4e5f2f0acafb6a5e5f2f0b4afe5f2f0a3afaeaea5a3b4e1" class="btn-email">✉ Send me an email</a>
+        <div class="contact-name-block">
+          <div class="contact-avatar">
+            <img src="alexpic.jpg" alt="Alessandra Faye Caaya" onerror="this.style.display='none';this.parentElement.innerHTML='AF';">
+          </div>
+          <div>
+            <div class="contact-id-name">Alessandra Faye Caaya</div>
+            <div class="contact-id-sub">Writer · Strategist · Psychology-Driven Creator</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right">
+        <ul class="contact-links">
+          <li>
+            <a href="https://www.linkedin.com/in/alessandra-caaya/" target="_blank" class="contact-item">
+              <div class="ci-icon">in</div>
+              <div><div class="ci-label">LinkedIn</div><div class="ci-value">linkedin.com/in/alessandra-caaya</div></div>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.onlinejobs.ph/jobseekers/info/alessandrafayecaaya" target="_blank" class="contact-item">
+              <div class="ci-icon">📋</div>
+              <div><div class="ci-label">OnlineJobsPH</div><div class="ci-value">Alessandra Faye Caaya</div></div>
+            </a>
+          </li>
+          <li>
+            <div class="contact-item">
+              <div class="ci-icon">🌏</div>
+              <div><div class="ci-label">Location & Availability</div><div class="ci-value">Philippines · Flexible Time · Remote</div></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fn">Alessandra Faye Caaya</span>
+  <span>Podcast Prod · Writer · Curator · © 2025</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
+// ── CAROUSEL ──
+let cur = 0;
+const track = document.getElementById('carTrack');
+const dots = document.querySelectorAll('.cdot');
+
+function getCards() { return track.querySelectorAll('.svc-card'); }
+
+function getVisibleCount() {
+  return window.innerWidth <= 768 ? 1 : 3;
+}
+
+function goSlide(n) {
+  const cards = getCards();
+  const visible = getVisibleCount();
+  const max = Math.max(0, cards.length - visible);
+  cur = Math.max(0, Math.min(n, max));
+  let offset = 0;
+  const gap = 22;
+  for (let i = 0; i < cur; i++) {
+    offset += cards[i].offsetWidth + gap;
+  }
+  track.style.transform = `translateX(-${offset}px)`;
+  dots.forEach((d, i) => {
+    d.classList.toggle('active', i === cur);
+  });
+}
+
+function moveCarousel(dir) { goSlide(cur + dir); }
+window.addEventListener('resize', () => goSlide(cur));
+
+// ── PORTFOLIO TABS ──
+function portTab(btn, panelId) {
+  document.querySelectorAll('.port-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.port-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+</body>
+</html>
